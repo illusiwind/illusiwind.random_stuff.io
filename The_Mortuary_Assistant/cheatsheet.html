@@ -47,13 +47,13 @@
     if(s[i]=='a') ind=10;
     else if(s[i]=='b') ind=11;
     else if(s[i]>='0'&&s[i]<='9') ind=parseInt(s[i]);
-    else return;
+    else {document.getElementById("img_list").innerHTML=""; return;}
     let final_list=lists[ind];
     for(i=1;i<s.length;i++){
       if(s[i]=='a') ind=10;
       else if(s[i]=='b') ind=11;
       else if(s[i]>='0'&&s[i]<='9') ind=parseInt(s[i]);
-      else break;
+      else {document.getElementById("img_list").innerHTML=""; return;}
       final_list=final_list.filter(x=>lists[ind].includes(x));
     }
     let imgs="";
