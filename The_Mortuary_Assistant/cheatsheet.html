@@ -1,1 +1,48 @@
-Hello World
+<html>
+<body>
+  <img src="Sigils0+.jpg">
+  <p>Input the sigils you've seen so far according to the image above :
+    <textarea id="input" onkeyup="display()"></textarea>
+  </p>
+  <div id="img_list">
+  
+  </div>
+</body>
+<script type="text/javascript">
+	function display(){
+    let lists=[[1,6,7,9,10,11],
+               [3,5,7,8,9,11],
+               [0,2],
+               [4,10],
+               [1,5,9,11],
+               [0,1,7,8,9,10,11],
+               [2,3,5,6,8],
+               [3,4,5],
+               [1,4,6],
+               [0,2,3],
+               [8,10],
+               [0,2,4,6,7]];
+
+    let s=document.getElementById("input").value;
+    let i=0;
+    let ind=0;
+    if(s[i]=='a') ind=10;
+    else if(s[i]=='b') ind=11;
+    else if(s[i]>='0'&&s[i]<='9') ind=parseInt(s[i]);
+    else return;
+    let final_list=lists[ind];
+    for(i=1;i<s.length;i++){
+      if(s[i]=='a') ind=10;
+      else if(s[i]=='b') ind=11;
+      else if(s[i]>='0'&&s[i]<='9') ind=parseInt(s[i]);
+      else break;
+      final_list=final_list.filter(x=>lists[ind].includes(x));
+    }
+    let imgs="";
+    for(i=0;i<final_list.length;i++){
+      imgs+="<img src=\""+final_list[i]+".jpg\">";
+    }
+    document.getElementById("img_list").innerHTML=imgs;
+  }
+</script>
+</html>
