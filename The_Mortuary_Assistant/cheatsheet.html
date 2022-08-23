@@ -1,6 +1,20 @@
 <html>
 <body>
-  <img src="Sigils0+.jpg">
+  <img src="Sigils0+.jpg" usemap="#symbol_map">>
+  <map name="workmap">
+  <area shape="rect" coords="59,75,127,151" onclick="add_num('0')">
+  <area shape="rect" coords="133,75,200,151" onclick="add_num('1')">
+  <area shape="rect" coords="207,75,274,151" onclick="add_num('2')">
+  <area shape="rect" coords="279,75,350,151" onclick="add_num('3')">
+  <area shape="rect" coords="354,75,422,151" onclick="add_num('4')">
+  <area shape="rect" coords="428,75,500,151" onclick="add_num('5')">
+  <area shape="rect" coords="59,75,127,151" onclick="add_num('6')">
+  <area shape="rect" coords="133,154,200,228" onclick="add_num('7')">
+  <area shape="rect" coords="207,154,274,228" onclick="add_num('8')">
+  <area shape="rect" coords="279,154,350,228" onclick="add_num('9')">
+  <area shape="rect" coords="354,154,422,228" onclick="add_num('a')">
+  <area shape="rect" coords="428,154,500,228" onclick="add_num('b')">
+  </map>
   <p>Input the index of the sigils you've seen so far according to the image above :</p>
   <textarea id="input" onkeyup="display()"></textarea>
   <div id="img_list">
@@ -8,7 +22,10 @@
   </div>
 </body>
 <script type="text/javascript">
-	function display(){
+  function add_num(x){
+	  document.getElementById("input").value+=x;
+  }
+  function display(){
     let lists=[[1,6,7,9,10,11],
                [3,5,7,8,9,11],
                [0,2],
